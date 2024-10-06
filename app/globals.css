@@ -1,0 +1,853 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* React Slick css */
+/* .slick-slide>div {
+  margin: 0 10px;
+} */
+
+.slick.-dots li.slick-active button:before {
+  color: rgb(33, 33, 97) !important;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  color: rgb(33, 33, 97) !important;
+}
+
+.slick-dots li button:before {
+  padding-top: 20px !important;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+@keyframes ping {
+
+  55%,
+  90% {
+    transform: scale(1.5);
+    opacity: 0;
+    /* transform-origin: 50% 50%; */
+    /* transition: transform 10s ease-out, opacity 5ms ease-out; */
+
+  }
+
+}
+
+.animate-ping1 {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 0.5) infinite;
+  /* transition-duration: 1000ms; */
+  transition-delay: 100ms;
+}
+
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.line-clamp-5 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.content-container {
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+}
+
+@layer components {
+  input[type="checkbox"]:checked~label span svg {
+    @apply inline-flex;
+  }
+
+  .sticky .header-logo {
+    @apply py-5 lg:py-2;
+  }
+
+  .sticky .menu-scroll.active {
+    @apply opacity-70;
+  }
+
+  input#togglePlan:checked~.dot {
+    @apply translate-x-full;
+  }
+
+  input#checkboxLabel:checked~.box span {
+    @apply opacity-100;
+  }
+}
+
+.drob-shadows {
+  text-shadow: black 0.5px 0px, black 0px 0.5px, black -0.5px 0px, black 0px -0.5px;
+  /* text-shadow: 0 0 0 #000, 0 0 0 #000, 0 0 0 #000, 0 0 0 #000; */
+
+}
+
+
+/* animated fadeInUp on scroll  */
+
+
+
+
+.view {
+  overflow: scroll;
+}
+
+.animatedScroll {
+  animation: fadeIn 2s linear;
+  animation-timeline: view();
+  /* animation-name: fadeIn linear forwards; */
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  /* Firefox requires this to apply the animation */
+  animation-timing-function: linear;
+  opacity: 0;
+  transform: translateY(50px);
+
+  animation: fadeIn 1s both;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 3 gradient blue color */
+
+.blue-gradient {
+  background: rgb(33, 33, 97);
+  background: linear-gradient(90deg,
+      rgba(33, 33, 97, 1) 0%,
+      rgba(0, 212, 255, 1) 100%);
+}
+
+.blue-gradient-2 {
+  background: rgb(33, 33, 97);
+  background: linear-gradient(90deg,
+      rgba(33, 33, 97, 1) 0%,
+      rgba(0, 212, 255, 1) 100%);
+}
+
+.dark-blue-gradient {
+  background: rgb(33, 33, 97);
+  background: linear-gradient(90deg,
+      rgba(33, 33, 97, 1) 0%,
+      rgba(0, 212, 255, 1) 100%);
+}
+
+
+/* start-react-Calendar   */
+.react-calendar {
+  /* width: 100%; */
+  /* max-width: 100%; */
+  background: white;
+  border-radius: 15px;
+  border: 1px solid rgb(209 213 219);
+  font-family: Manrope, Helvetica, sans-serif;
+  line-height: 1.125em;
+  padding: 1.5rem;
+  margin: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  /* color: rgb(55 65 81); */
+}
+
+.react-calendar--doubleView {
+  /* width: 700px; */
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer>* {
+  /* width: 50%; */
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Custom Navigation Styles */
+@media screen and (max-width: 500px) {
+
+  .react-calendar__navigation__prev2-button,
+  .react-calendar__navigation__prev-button {
+    display: none;
+  }
+
+  .react-calendar__navigation__label {
+    padding-left: 1rem;
+    text-align: left;
+  }
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 33px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 33px;
+  background: none;
+}
+
+.react-calendar__navigation button:disabled {
+  visibility: hidden;
+  background-color: #2b378b;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #274081;
+  color: white;
+}
+
+.react-calendar__month-view__weekdays {
+  color: #4f46e5;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+}
+
+/* Each day should be round when hovered */
+.react-calendar__month-view__days__day {
+  padding: 3px;
+  background-clip: content-box !important;
+  border-radius: 15px !important;
+}
+
+.react-calendar__navigation__label__labelText {
+  font-weight: 500;
+  font-size: 1.05em;
+}
+
+.react-calendar__navigation__label {
+  pointer-events: none;
+}
+
+.react-calendar__navigation__arrow {
+  background-color: #96a8ce;
+  padding: 10px;
+  background-clip: content-box !important;
+  border-radius: 50px;
+  font-size: 1.25em;
+}
+
+.react-calendar__navigation__arrow:hover {
+  background-color: rgb(58, 68, 88);
+}
+
+/* If you do not wish to show weekends */
+.react-calendar__month-view__days__day.available {
+  background-color: #008000;
+  color: white;
+}
+
+.react-calendar__month-view__days__day.available:enabled:hover,
+.react-calendar__month-view__days__day.available:enabled:focus {
+  background-color: #034603;
+  /* color: white; */
+}
+
+.react-calendar__month-view__days__day.unavailable {
+  background-color: #ab1414;
+  color: white;
+  cursor: not-allowed;
+}
+
+.react-calendar__month-view__days__day.unavailable:enabled:hover,
+.react-calendar__month-view__days__day.unavailable:disabled:focus {
+  background-color: #510505;
+  user-select: none;
+  cursor: not-allowed;
+  /* color: white; */
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  /* padding: 0.75em; */
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #b3b3b3;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 3em 1.5em;
+}
+
+.react-calendar__tile {
+  aspect-ratio: 1/1;
+  max-width: 100%;
+  background: none;
+  text-align: center;
+}
+
+.react-calendar__tile--now {
+  border-radius: 15px;
+  border: 2px solid #120c84 !important;
+  color: #2e2a80;
+}
+
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: rgb(238 242 255);
+}
+
+/* end-react-Calendar   */
+
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  /* transition: all 0.3s ease-in-out; */
+  transition-property: top;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.bg-logo {
+
+  background-image: url('/images/logo/logo-2.png');
+  background-position: center;
+  background-size: cover;
+  fill-opacity: calc(1.05em);
+  /* background-blend-mode: overlay; */
+  /* background-image: cross-fade(1.05em); */
+  background-origin: initial;
+
+
+}
+
+.my-table {
+  /* Apply styles to the table */
+  border-radius: 10px;
+  /* Border radius for the table */
+  overflow: hidden;
+  /* Prevent content from overflowing the table */
+}
+
+
+
+.uk-table tbody tr {
+  transition: background-color .1s linear;
+}
+
+
+.uk-table tbody tr {
+  transition: background-color .1s linear;
+}
+
+.table-default tbody tr td {
+  padding: 30px 13px 25px;
+  /* background: #dcdcdc; */
+  font-size: 16px;
+  border-spacing: 0;
+  vertical-align: middle;
+
+
+}
+
+.uk-table td>:last-child {
+  margin-bottom: 0;
+}
+
+.uk-icon {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  padding: 0;
+  background-color: transparent;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 0;
+}
+
+
+.table-default thead th {
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.table-default tbody tr td {
+  font-size: 14px;
+}
+
+.table-default tbody tr td:nth-of-type(3) {
+  width: 145px;
+}
+
+.table-default tbody tr td:nth-of-type(4) {
+  width: 87px;
+}
+
+.table-default tbody tr td:last-child {
+  width: 180px;
+}
+
+.table-default tbody tr td .fee-btn {
+  margin-top: 4px;
+  display: block;
+}
+
+.table-default tbody tr td:first-child {
+  position: relative;
+  padding-left: 20px;
+  width: 170px;
+}
+
+.bg-white,
+.table-default tbody tr td,
+.personal-card .content,
+.uk-card.cabin-card .btn-block .uk-button {
+  background-color: #e5e7eb !important;
+
+}
+
+.bg-black {
+  background-color: #000 !important;
+}
+
+.uk-container {
+  display: flow-root;
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.uk-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+
+@media (max-width: 767px) {
+  .table-default tbody tr td {
+    width: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-default tbody tr td {
+    padding: 15px 10px 15px !important;
+    font-size: 15px;
+  }
+}
+
+.table-default tbody tr td {
+  padding: 25px 13px 20px;
+  background: #e5e7eb !important;
+  font-size: 16px;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+
+
+
+
+@media only screen and (max-width:800px) {
+  .jrt-instance-1>tbody>tr>td.jrt-cell-1:before {
+    content: "Date: ";
+  }
+
+  .jrt-instance-1>tbody>tr>td.jrt-cell-2:before {
+    content: "Route: ";
+  }
+
+  .jrt-instance-1>tbody>tr>td.jrt-cell-3:before {
+    content: "Start / End: ";
+  }
+
+  .jrt-instance-1>tbody>tr>td.jrt-cell-7:before {
+    content: "Price: ";
+  }
+
+
+  .jrt-instance-1>tbody>tr>td.jrt-cell-8:before {
+    content: "Trip Status: ";
+  }
+
+  
+
+  .jrt-instance-1>tbody>tr>td.jrt-cell-5:before {
+    content: "Available Places: ";
+  }
+
+  .jrt-instance-1>tbody>tr>td.jrt-cell-6:before {
+    content: "Boat: ";
+  }
+
+  .jrt table,
+  .jrt thead,
+  .jrt tbody,
+  .jrt th,
+  .jrt td,
+  .jrt tr {
+    display: block;
+    text-align: left;
+  }
+
+  /* hide table headers (but not display: none;, for accessibility) */
+  .jrt thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .jrt tr {
+    border: 0;
+  }
+
+  .jrt tr {
+    border: 0;
+  }
+
+
+  .bg-white,
+  .table-default tbody tr td,
+  .personal-card .content,
+  .uk-card.cabin-card .btn-block .uk-button {
+    background-color: #e5e7eb !important;
+    /* padding: 10px; */
+    /* margin: 10px; */
+  }
+
+  .table-default tbody tr.gap {
+    height: 0px;
+    /* height: 0; */
+    /* display: none; */
+    background-color: transparent !important;
+
+
+  }
+
+  .table-default tbody tr:not(.gap) {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, .17);
+    border-radius: 0 0 0 0;
+    padding: 5px;
+    margin: 5px;
+
+  }
+
+  .jrt tr {
+    border: 0;
+    margin: 5px;
+  }
+
+
+
+
+
+  .table-default tbody tr td {
+    padding-top: 25px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    /* background: #e5e7eb; */
+    font-size: 16px;
+    border-spacing: 0;
+    vertical-align: middle;
+
+
+  }
+
+  .jrt td {
+    /* behave  like a "row" */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-weight: normal;
+    border-right: 0 !important;
+    padding: 6px 6px 6px 0;
+  }
+
+  .jrt td:before {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 35%;
+    /* padding-right: 6px; */
+    margin-right: 5px;
+    font-weight: bold;
+  }
+
+
+  .table-default tbody tr td:first-child {
+    position: relative;
+    /* padding-left: 20px; */
+    width: 100%;
+  }
+
+}
+
+
+
+
+
+@media (max-width: 959px) {
+
+
+  .uk-table-responsive,
+  .uk-table-responsive tbody,
+  .uk-table-responsive td,
+  .uk-table-responsive th,
+  .uk-table-responsive tr {
+    display: block
+  }
+
+  .uk-table-responsive thead {
+    display: none
+  }
+
+  .uk-table-responsive td,
+  .uk-table-responsive th {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+    white-space: normal !important
+  }
+
+  .uk-table-responsive .uk-table-link:not(:first-child)>a,
+  .uk-table-responsive td:not(:first-child):not(.uk-table-link),
+  .uk-table-responsive th:not(:first-child):not(.uk-table-link) {
+    padding-top: 5px !important
+  }
+
+  .uk-table-responsive .uk-table-link:not(:last-child)>a,
+  .uk-table-responsive td:not(:last-child):not(.uk-table-link),
+  .uk-table-responsive th:not(:last-child):not(.uk-table-link) {
+    padding-bottom: 5px !important
+  }
+
+  .uk-table-justify.uk-table-responsive td,
+  .uk-table-justify.uk-table-responsive th {
+    padding-left: 0;
+    padding-right: 0
+  }
+}
+
+.uk-table tbody tr {
+  transition: background-color .1s linear
+}
+
+.uk-icon {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  padding-top: 5px;
+  padding: 0;
+  background-color: transparent;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: #2b378b;
+
+}
+
+
+
+
+
+
+.table-default {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.table-default td a {
+  transition: .4s;
+  color: white;
+}
+
+.table-default thead th {
+  vertical-align: bottom;
+  font-size: 18px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* 
+.table-default tbody tr:not(.gap) {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.17);
+    border-radius: 0 0 0 0;
+  
+} */
+
+
+.table-default tbody tr:hover td a svg use {
+  fill: rgb(32, 32, 91);
+}
+
+
+
+.table-default tbody tr td:last-child {
+  border-radius: 0 0 0 0;
+}
+
+.table-default tbody tr td.status.confirmed {
+  color: #2e2a80 !important;
+}
+
+.table-default tbody tr td.status.confirmed:before {
+  color: #2b378b;
+}
+
+.table-default tbody tr td.status.unconfirmed {
+  color: #2e2a80 !important;
+}
+
+.table-default tbody tr td.status.planned {
+  color: #00f !important;
+}
+
+.table-default tbody tr td.status.option {
+  color: #120c84 !important;
+}
+
+.table-default tbody tr td .uk-button {
+  min-width: 83px;
+  font-size: 14px;
+  border-radius: 0 0 15px 0;
+}
+
+.table-default .ribbon {
+  width: 100px;
+  height: 100px;
+}
+
+.table-default .ribbon span.content {
+  width: 160px;
+  background-color: #120c84;
+  font-size: 9px;
+  z-index: 5;
+  text-transform: capitalize;
+  color: #000;
+  font-weight: 600;
+}
+
+.table-default .ribbon-top-left span.content {
+  right: -16px;
+  top: 18px;
+  transform: rotate(-45deg);
+}
+
+.table-default .ribbon::before,
+.table-default .ribbon::after {
+  z-index: 1;
+  border: 5px solid #120c84;
+}
+
+.table-default .ribbon-top-left::before {
+  top: 0;
+  right: 11px;
+}
+
+.table-default .ribbon-top-left::after {
+  bottom: 11px;
+  left: 0;
+}
+
+.table-default .ribbon-top-left.blue .content {
+  /* color: #e5e7eb; */
+}

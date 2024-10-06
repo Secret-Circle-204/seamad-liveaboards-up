@@ -1,0 +1,30 @@
+/* ReviewCard.module.css */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card.active {
+    transform: translateX(-50px);
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    color: #f9a825;
+  }
+  
+  .content {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
