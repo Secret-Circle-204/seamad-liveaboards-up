@@ -109,7 +109,7 @@ const ScheduleTable = ({ tripsSchedule: initialTrips, tripName }) => {
                 <UseAnimations
                   animation={status === 'total' ? tripStatusCounts.totalIccon : status === 'available' ? tripStatusCounts.completedIccon : tripStatusCounts.availableIccon}
                   size={40}
-                  speed={5}
+                  speed={1}
                   strokeColor='#2f285b'
                   // strokeWidth={2} 
                   className="m-1"

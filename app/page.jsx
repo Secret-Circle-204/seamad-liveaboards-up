@@ -12,42 +12,46 @@ import { readItems, readItem } from '@directus/sdk'
 import { notFound } from 'next/navigation'
 import Head from '@/app/head'
 import Faq from '@/components/Faq'
- async function getHome() {
+export const revalidate = 10
+
+async function getHome() {
   try {
-    const pages = await directus.request(
-      readItems('home', {
+    const response = await directus.request(readItems('home', {
+      next: { revalidate: 10 },
+      fields: [
+        {
 
-        fields: [
-          '*',
-          {
-            components: [
-              '*',
-              {
-                item: {
-                  block_hero: ['slogan', 'image', 'images.*'],
-                  about_section: ['title', 'content', 'image'],
-                  block_video: ['title', 'video_file.filename_disk', 'video_url', 'headline'],
-                  block_faqs: ['title', 'headline','faqs',
 
-                    {
-                      faqs: ['title', 'answer'],
-                    }
-                  ],
-                },
+          components: [
+            '*',
+            {
+              item: {
+                block_hero: ['slogan', 'image', 'images.*'],
+                about_section: ['title', 'content', 'image'],
+                block_video: ['title', 'video_file.filename_disk', 'video_url', 'headline'],
+                block_faqs: ['title', 'headline', 'faqs',
+
+                  {
+                    faqs: ['title', 'answer'],
+                  }
+                ],
               },
-            ],
-          },
-        ],
-        next: { revalidate: 20 },
-
-        // limit: 1,
-      })
-    );
-
-
-    return pages
+            },
+          ],
+          sort: ['sort'],
+        },
+      ],
+      filter: {
+        status: {
+          _eq: 'published',
+        },
+      },
+      // sort: ['sort'],
+    }));
+    return response;
   } catch (error) {
-    notFound('Error fetching data Mr Hamza :', error)
+    console.error('Error fetching activities:', error);
+    // throw new Error('Failed to fetch activities');
   }
 }
 
@@ -57,13 +61,13 @@ export default async function Home() {
 
 
 
-   return (
+  return (
     <>
 
       <Head page={'home'} />
       <ScrollUp />
       <Hero heroData={home?.components[0]?.item} />
- 
+
       <Features aboutData={home?.components[1]?.item} />
       <Video videoData={home?.components[2]?.item} />
 

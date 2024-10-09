@@ -57,8 +57,8 @@ const Videos = ({ videoData }) => {
           ) : (
 
             <video
-              // autoPlay
 
+              autoPlay
               muted
               playsInline
               controls

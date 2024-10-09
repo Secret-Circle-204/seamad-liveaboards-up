@@ -55,7 +55,7 @@ const ContactForm = () => {
   return (
     <>
       <ToastContainer />
-      <section id="contact" className="max-w-[1200px] mx-auto overflow-hidden py-16 md:py-20 lg:py-28">
+      <section id="contact" className="max-w-[1200px] mx-auto overflow-hidden py-16   lg:pb-28 lg:pt-20">
         <div className="-mx-4 h-full flex flex-wrap">
           <div className="w-full h-full px-4">
             <div className="wow fadeInUp mb-12 rounded-md bg-blue3/[10%] py-11 px-8  sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]">

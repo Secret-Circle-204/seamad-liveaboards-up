@@ -20,36 +20,46 @@ const AboutSectionOne = ({ data }) => {
   );
 
   return (
-    <section className="max-w-[1350px] px-4 lg:px-0 lg:py-10 mx-auto">
-      <div
-        className={` ${data?.direction === 'reverse' ? ' flex  lg:gap-x-8  lg:gap-4 lg:items-start lg:justify-between  flex-col  lg:flex-row-reverse' : 'grid grid-cols-1 px-3 gap-7 lg:grid-cols-2 lg:gap-8'}
-           p-5 mb-16  rounded-lg`} >
-        <div className={`${data?.direction === 'reverse' ? 'lg:w-[100%] px-3  w-full' : 'lg:col-span-1'}   py-2 px-3   rounded-lg`}>
-          <SectionTitle title={data?.title} description={data?.description} />
+    <>
+      <section className="max-w-[1350px] px-3 lg:px-0 lg:py-10 mx-auto">
 
-          <div className="mx-[-12px] flex flex-wrap">
+
+        <div className={`${data?.direction === 'reverse' ? ' lg:justify-between lg:space-x-6 lg:space-x-reverse  lg:flex lg:flex-col   lg:px-0  w-full' : 'lg:grid-cols-2 lg:grid lg:gap-4'}   py-2 lg:px-1   rounded-lg`}>
+
+          <div className={`${data?.direction === 'reverse' ? 'lg:w-[40%]}' : 'lg:w-[100%]'} mx-[-10px] py-2 lg:p-0 p-3 w-full  flex flex-wrap`}>
+            <div className="w-full lg:max-w-[100%] p-2">
+              <h2 className='mb-4 text-2xl font-bold !leading-tight text-blue3 dark:text-white sm:text-2xl md:text-[25px]'>
+                {data?.title}
+              </h2>
+              <p className='text-base text-justify   text-gray-500 md:text-lg'>
+                {data?.description}
+              </p>
+            </div>
             <div className=" w-full">
               {data?.list?.map((data, i) => (
                 <List key={i} text={data?.text} />
               ))}
-              
+
             </div>
+          </div>
+          {/* images */}
+
+          <div className={`${data?.direction === 'reverse' ? 'lg:w-[40%]} lg:py-6' : 'lg:w-[100%]'} pb-2   lg:pr-3 mx-auto rounded-2xl    w-full h-full object-cover object-center py-1`}>
+            <Image
+              src={getAssetURL(data?.image)}
+              alt="about image"
+              width={500}
+              height={600}
+              className={` ${data?.direction === 'reverse' ? 'lg:max-h-[560px] ' : 'lg:min-h-[650px] '} h-auto object-cover  object-center w-full max-w-full rounded-lg`}
+            />
           </div>
         </div>
 
-        {/* images */}
 
-        <div className="pb-2   lg:pr-3 mx-auto rounded-2xl lg:w-[100%] w-full h-full object-cover object-center py-1">
-          <Image
-            src={getAssetURL(data?.image)}
-            alt="about image"
-            width={500}
-            height={600}
-            className="h-auto lg:min-h-[550px] object-cover  object-center w-full max-w-full rounded-lg"
-          />
-        </div>
-      </div>
-    </section>
+      </section>
+      {/* <div className="hidden lg:block w-full mb-16 mx-auto h-52 bg-blue3" /> */}
+
+    </>
   );
 };
 

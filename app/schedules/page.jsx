@@ -1,8 +1,6 @@
 ﻿import ScheduleTable from '@/components/AllTrips/ScheduleTable'
 import getAssetURL from '@/lib/get-asset-url'
-import { notFound } from 'next/navigation'
-import { readItems, readItem } from '@directus/sdk'
-import directus from '@/lib/directus'
+ 
 import Head from '@/app/head'
 import {getTrips,getAllSchedules,getPageData} from '@/lib/apis'
 export const revalidate = 30;

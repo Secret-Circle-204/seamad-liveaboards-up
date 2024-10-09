@@ -27,7 +27,7 @@ export const metadata = {
   format: 'website'
 
 }
-export const revalidate = 1800 // revalidate at most 1800 seconds
+export const revalidate = 300 // revalidate at most 1800 seconds
 
 export default function RootLayout({ children }) {
   return (

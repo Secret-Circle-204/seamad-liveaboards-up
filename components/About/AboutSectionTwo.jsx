@@ -14,6 +14,7 @@ const AboutSectionTwo = () => {
                 alt="about image"
                  width={500}
                 height={600}
+                priority
                 className="w-full h-full object-cover object-center"
               />
 

@@ -6,14 +6,16 @@ import { getAboutUs } from '@/lib/apis'
 export default async function AboutPage() {
 
   const about = await getAboutUs();
-   return (
+  return (
     <>
       <Head page={'about'} />
       <Breadcrumb />
       {/* <AboutSectionTwo /> */}
       {about?.page_sections?.map((data, i) => (
+
         <AboutSectionOne key={i} data={data} />
-        
+
+
       ))}
     </>
   )

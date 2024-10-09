@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import SectionTitle from '../Common/SectionTitle'
-import SingleBlog from './SingleBlog'
+// import SectionTitle from '../Common/SectionTitle'
+// import SingleBlog from './SingleBlog'
 // import blogData from './blogData'
 import getAssetURL from '@/lib/get-asset-url'
 import directus from '@/lib/directus'
@@ -50,7 +50,7 @@ export default function Blog() {
   return (
     <section
       id='blog'
-      className='bg-primary/[.03] w-full mx-auto mt-20 sm:px-1 py-16 md:py-20 lg:py-28'
+      className='bg-primary/[.03] w-full mx-auto mt-20 sm:px-1 pb-10 pt-16 md:py-16 lg:py-16'
     >
       
 
@@ -116,11 +116,15 @@ export default function Blog() {
             ))}
         </div>
 
-        <Link href='/blog'>
-          <button className='inline-flex items-center justify-center mt-16 rounded-lg bg-blue3 py-4 px-8 text-center text-base font-medium text-white hover:bg-opacity-90 lg:px-10 xl:px-12 2xl:px-10'>
-            Show All Posts
-          </button>
-        </Link>
+       <div className='flex flex-col items-start lg:mt-14  my-10 justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
+                  <Link
+                    href={`/blog`}
+                    className='rounded-md bg-blue3 lg:py-4 py-3  lg:px-8 px-5 text-base font-semibold text-white duration-300 ease-in-out hover:bg-blue3/90'
+                  >
+                    Show All Posts
+                  </Link>
+
+                </div>
       </div>
     </section>
   )
